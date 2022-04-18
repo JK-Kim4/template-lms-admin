@@ -19,4 +19,8 @@ public class TestController {
     public String login(){
         return "user/login";
     }
+
+    @GetMapping("/class")
+    public String classList(){
+        return "class/list";}
 }
