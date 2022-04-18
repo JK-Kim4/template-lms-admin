@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @Log4j2
-@RequestMapping("/cls")
-public class ClsController {
+@RequestMapping("/edu")
+public class EduController {
 
     @GetMapping("/insert")
     public String insert(){
-        return "cls/insert";
+        return "edu/insert";
     }
 }

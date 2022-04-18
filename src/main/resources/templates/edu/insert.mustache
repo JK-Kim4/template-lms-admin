@@ -1,0 +1,78 @@
+{{>layouts/header}}
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title"> 교육 과정 등록 </h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">교육 과정 목록</a></li>
+                <li class="breadcrumb-item active" aria-current="page">교육 과정 등록</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">교육 과정 등록</h4>
+                    <p class="card-description"> 새로운 과정을 등록합니다. </p>
+                    <form class="eduInsertFrm" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="exampleInputName1">과정명</label>
+                            <input type="text" class="form-control" id="exampleInputName1" placeholder="과정명을 입력해 주세요" name="eduNm">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail3">과정 상세 설명</label>
+                            <textarea class="form-control" name="" id="" cols="30" rows="10" name="eduDesc"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>썸네일 이미지 업로드</label>
+                            <input type="file" name="thumImgUrl" class="file-upload-default">
+                            <div class="input-group col-xs-12">
+                                <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                                <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                          </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="enrollStartDate">과정 등록 시작일자</label>
+                            <input type="text" class="form-control" name="enrollStartDate" id="enrollStartDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="enrollEndDate">과정 등록 종료일자</label>
+                            <input type="text" class="form-control" name="enrollEndDate" id="enrollEndDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="eduStartDate">과정 시작일자</label>
+                            <input type="text" class="form-control" name="eduStartDate" id="eduStartDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="eduEndDate">과정 종료 일자</label>
+                            <input type="text" class="form-control" name="eduEndDate" id="eduEndDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="capacity">과정 정원</label>
+                            <input type="number" class="form-control" id="capacity" placeholder="capacity" name="capacity">
+                        </div>
+                        <div class="form-group">
+                            <label for="tutrId">교사 선택</label>
+                            <input type="text" class="form-control" id="tutrId" name="tutrId">
+                        </div>
+                        <div class="form-group">
+                            <label for="tutrId">결제 수단</label>
+                            <input type="checkbox" class="form-control" name="tutrId" id="tutrId" value="1">
+                            <input type="checkbox" class="form-control" name="tutrId" id="tutrId" value="2">
+                            <input type="checkbox" class="form-control" name="tutrId" id="tutrId" value="3">
+                            <input type="checkbox" class="form-control" name="tutrId" id="tutrId" value="4">
+                            <input type="checkbox" class="form-control" name="tutrId" id="tutrId" value="5">
+                        </div>
+                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                        <button class="btn btn-dark">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- content-wrapper ends -->
+{{>layouts/footer}}

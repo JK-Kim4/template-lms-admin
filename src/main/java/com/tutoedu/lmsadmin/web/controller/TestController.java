@@ -22,5 +22,5 @@ public class TestController {
 
     @GetMapping("/class")
     public String classList(){
-        return "cls/list";}
+        return "edu/list";}
 }
