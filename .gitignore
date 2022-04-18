@@ -2,3 +2,5 @@
 .idea
 
 application-loc.properties
+
+*.log
