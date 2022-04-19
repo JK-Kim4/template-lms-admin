@@ -1,4 +1,4 @@
-package com.tutoedu.lmsadmin.web.model;
+package com.tutoedu.lmsadmin.domain.education;
 
 import lombok.Data;
 

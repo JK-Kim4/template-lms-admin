@@ -36,6 +36,9 @@ dependencies {
     //mustache
     implementation 'org.springframework.boot:spring-boot-starter-mustache'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    //mybatis
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
 }
 
 //starter logging -> log4j2
