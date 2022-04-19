@@ -1,0 +1,54 @@
+{{>layouts/header}}
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title"> 저자 등록 </h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0);" onclick="move_location('/author/list')">저자 목록</a></li>
+                <li class="breadcrumb-item active" aria-current="page">저자 등록</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">저자 등록</h4>
+                    <p class="card-description"> 저자 등록. </p>
+                    <form class="eduInsertFrm" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="exampleInputName1">이름</label>
+                            <input type="text" class="form-control" id="exampleInputName1" placeholder="과정명을 입력해 주세요" name="eduNm">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail3">이름 ( 한자 )</label>
+                            <input type="text" class="form-control" name="enrollStartDate" id="enrollStartDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="enrollStartDate">이름 ( 영문 )</label>
+                            <input type="text" class="form-control" name="enrollStartDate" id="enrollStartDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail3">저자 설명</label>
+                            <textarea class="form-control" name="" id="" cols="30" rows="10" name="eduDesc"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>저자 프로필 이미지</label>
+                            <input type="file" name="thumImgUrl" class="file-upload-default">
+                            <div class="input-group col-xs-12">
+                                <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                                <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                          </span>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                        <button class="btn btn-dark">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- content-wrapper ends -->
+{{>layouts/footer}}
