@@ -10,15 +10,15 @@ public class HomeController {
 
     @GetMapping("/index")
     public String index(){
-        return "contents/main_1";
+        return "layouts/main_1";
     }
 
     @GetMapping("/login")
     public String login(){
-        return "user/login";
+        return "contents/user/login";
     }
 
     @GetMapping("/class")
     public String classList(){
-        return "edu/list";}
+        return "contents/edu/list";}
 }
