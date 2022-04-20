@@ -1,13 +1,11 @@
 package com.tutoedu.lmsadmin.web;
 
 import com.tutoedu.lmsadmin.service.AuthorService;
+import com.tutoedu.lmsadmin.web.dto.AuthorInsertRequestDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 
@@ -29,10 +27,13 @@ public class AuthorController {
         return "contents/author/insert";
     }
 
-    @PostMapping(value = "/insert")
     @ResponseBody
-    public HashMap<String, Object> insertP(){
+    @PostMapping(value = "/insert")
+    public HashMap<String, Object> insertP(@RequestBody AuthorInsertRequestDto requestDto){
         HashMap<String, Object> resultMap = new HashMap<>();
+        log.debug("##################### AuthorController@insertP #####################");
+        log.debug(" author insert @ RequestBody : {}", requestDto.toString());
+        int result = authorService.insert(requestDto);
 
 
         return resultMap;

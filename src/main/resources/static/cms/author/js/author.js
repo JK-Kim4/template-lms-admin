@@ -20,13 +20,18 @@ let main = {
           method : "POST",
           contentType : "application/json; charset=UTF-8",
           dataType : "json",
-          data : JSON.stringify(data)
-      }).done(function(result) {
-          alert("등록이 완료되었습니다.")
-          window.location.href = "/author/list"
-      }).fail(function() {
-          alert("등록이 실패하였습니다.")
-          window.location.reload();
+          data : JSON.stringify(data),
+          success : function (result){
+              if(result.code == '00'){
+                  alert("등록 성공");
+                  window.location.href = "/author/list"
+              }else{
+                  alert("등록 실패")
+              }
+          },
+          error : function (e, x, h){
+              alert("error : " +e);
+          }
       })
     }
 }

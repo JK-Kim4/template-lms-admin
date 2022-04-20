@@ -1,7 +1,9 @@
 package com.tutoedu.lmsadmin.mappers;
 
-import org.springframework.stereotype.Repository;
+import com.tutoedu.lmsadmin.web.dto.AuthorInsertRequestDto;
+import org.apache.ibatis.annotations.Mapper;
 
-@Repository
+@Mapper
 public interface AuthorMapper {
+    int save(AuthorInsertRequestDto requestDto);
 }
