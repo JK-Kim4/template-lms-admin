@@ -15,7 +15,19 @@ let main = {
           name3 : $("#name3").val(),
           description : $("#description").val()
       }
-      console.log("insert data : " + data);
+      $.ajax({
+          url : "/author/insert",
+          method : "POST",
+          contentType : "application/json; charset=UTF-8",
+          dataType : "json",
+          data : JSON.stringify(data)
+      }).done(function(result) {
+          alert("등록이 완료되었습니다.")
+          window.location.href = "/author/list"
+      }).fail(function() {
+          alert("등록이 실패하였습니다.")
+          window.location.reload();
+      })
     }
 }
 
