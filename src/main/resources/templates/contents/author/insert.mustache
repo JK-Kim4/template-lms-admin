@@ -15,7 +15,7 @@
                 <div class="card-body">
                     <h4 class="card-title">저자 등록</h4>
                     <p class="card-description"> 저자 등록. </p>
-                    <form class="authorInsertFrm" enctype="multipart/form-data">
+                    <form id="authorInsertFrm" enctype="multipart/form-data" method="post">
                         <div class="form-group">
                             <label for="name1">이름</label>
                             <input type="text" class="form-control" id="name1" name="name1" placeholder="과정명을 입력해 주세요" >
@@ -43,8 +43,8 @@
                           </span>
                             </div>
                         </div>
-                        <button class="btn btn-primary mr-2" id="submitBtn">Submit</button>
-                        <button class="btn btn-dark" onclick="javascript:window.history.back()">Cancel</button>
+                        <button type="button" class="btn btn-primary mr-2" id="submitBtn">Submit</button>
+                        <button type="button" class="btn btn-dark" onclick="javascript:window.history.back()">Cancel</button>
                     </form>
                 </div>
             </div>
