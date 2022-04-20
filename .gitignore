@@ -5,6 +5,6 @@ application-loc.properties
 
 *.log
 
-logs
-build
-out
+logs/
+build/
+out/
