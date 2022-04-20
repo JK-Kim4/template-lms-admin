@@ -13,7 +13,7 @@ public class Author {
     private String name1;
     private String name2;
     private String name3;
-    private String desc;
+    private String description;
     private String authImgUrl;
 
 }
