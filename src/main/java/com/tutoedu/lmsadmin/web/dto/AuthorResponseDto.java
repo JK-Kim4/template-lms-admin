@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AuthorResponseDto {
 
+    private Long id;
     private String name1;
     private String name2;
     private String name3;

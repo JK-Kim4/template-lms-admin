@@ -28,14 +28,18 @@
                             </thead>
                             <tbody>
                                 {{#list}}
-                                    <tr>{{index}}</tr>
-                                    <tr>{{name1}}</tr>
-                                    <tr>{{name2}}</tr>
-                                    <tr>{{name3}}</tr>
+                                    <tr>
+                                        <td>{{id}}</td>
+                                        <td>{{name1}}</td>
+                                        <td>{{name2}}</td>
+                                        <td>{{name3}}</td>
+                                    </tr>
                                 {{/list}}
                                 {{^list}}
-                                   <tr colspan="4">
-                                       데이터 없음
+                                   <tr>
+                                       <td colspan="4">
+                                           데이터 없음
+                                       </td>
                                    </tr>
                                 {{/list}}
                             </tbody>
