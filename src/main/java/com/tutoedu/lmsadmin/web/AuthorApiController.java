@@ -9,25 +9,22 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @Slf4j
-@RequestMapping(value = "/author")
+@RequestMapping(value = "/author/api")
 @RequiredArgsConstructor
-public class AuthorController {
+public class AuthorApiController {
 
     private final AuthorService authorService;
-
-    @GetMapping(value = "/list")
-    public String listG(){
-        return "contents/author/list";
-    }
-
-    @GetMapping(value = "/save")
-    public String insertG(){
-        return "contents/author/save";
-    }
 
     @ResponseBody
     @PostMapping(value = "/save")
     public Long save(@RequestBody AuthorSaveRequestDto requestDto){
-        return authorService.save(requestDto);
+
+        log.debug("Author save request : {}", requestDto.toString());
+
+        Long result = authorService.save(requestDto);
+
+        log.debug("Author save result : {}", result);
+
+        return result;
     }
 }

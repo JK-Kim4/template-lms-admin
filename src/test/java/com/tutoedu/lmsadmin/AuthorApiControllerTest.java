@@ -17,6 +17,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -25,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-public class AuthorControllerTest {
+public class AuthorApiControllerTest {
 
     @LocalServerPort
     private int port;
@@ -62,6 +63,9 @@ public class AuthorControllerTest {
         String content = "testContent";
         String imgUrl = "test url";
 
+        //BaseTimeEntity 검증 추가
+        LocalDateTime now = LocalDateTime.now();
+
         //given
         AuthorSaveRequestDto request = AuthorSaveRequestDto.builder()
                 .name1(name1)
@@ -71,7 +75,7 @@ public class AuthorControllerTest {
                 .imgUrl(imgUrl)
                 .build();
 
-        String url = "http://localhost:" + port + "/author/save";
+        String url = "http://localhost:" + port + "/author/api/save";
 
         //when
         mvc.perform(post(url)
@@ -83,6 +87,8 @@ public class AuthorControllerTest {
 
         assertThat(all.get(0).getName1()).isEqualTo(name1);
         assertThat(all.get(0).getContent()).isEqualTo(content);
+        assertThat(all.get(0).getCreatedDate()).isAfter(now);
+        assertThat(all.get(0).getModifiedDate()).isAfter(now);
 
     }
 

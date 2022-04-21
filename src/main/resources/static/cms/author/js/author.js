@@ -13,16 +13,18 @@ let main = {
           name1 : $("#name1").val(),
           name2 : $("#name2").val(),
           name3 : $("#name3").val(),
-          description : $("#description").val()
+          content : $("#content").val(),
+          imgUrl : $("#imgUrl").val()
       }
       $.ajax({
-          url : "/author/insert",
+          url : "/author/api/save",
           method : "POST",
           contentType : "application/json; charset=UTF-8",
           dataType : "json",
           data : JSON.stringify(data),
           success : function (result){
-              if(result.code == '00'){
+              console.log("save result : " + result)
+              if(result > 0){
                   alert("등록 성공");
                   window.location.href = "/author/list"
               }else{

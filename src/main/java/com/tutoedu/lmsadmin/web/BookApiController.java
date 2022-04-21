@@ -7,5 +7,5 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @Slf4j
 @RequestMapping("/book")
-public class BookController {
+public class BookApiController {
 }
