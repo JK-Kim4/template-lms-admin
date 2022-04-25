@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tutoedu.lmsadmin.domain.author.Author;
 import com.tutoedu.lmsadmin.domain.author.AuthorRepository;
 import com.tutoedu.lmsadmin.web.dto.AuthorSaveRequestDto;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,10 +48,10 @@ public class AuthorApiControllerTest {
                 .build();
     }
 
-    @AfterEach
+/*    @AfterEach
     public void tearDown() throws Exception{
         authorRepository.deleteAll();
-    }
+    }*/
 
     @Test
     public void author_save_test() throws Exception {

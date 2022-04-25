@@ -1,15 +1,19 @@
 package com.tutoedu.lmsadmin.domain.author;
 
 import com.tutoedu.lmsadmin.domain.BaseTimeEntity;
+import com.tutoedu.lmsadmin.domain.book.Book;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @Entity
+@Table(name = "author")
 public class Author extends BaseTimeEntity {
 
     @Id
@@ -30,6 +34,9 @@ public class Author extends BaseTimeEntity {
 
     @Column
     private String imgUrl;
+
+    @OneToMany(mappedBy = "author")
+    private List<Book> books = new ArrayList<>();
 
 
     @Builder

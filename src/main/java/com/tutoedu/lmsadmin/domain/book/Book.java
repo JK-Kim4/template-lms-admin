@@ -11,16 +11,18 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @Entity
+@Table(name = "book")
 public class Book extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String title;
 
     @ManyToOne
-    @JoinColumn(name="AUTHOR_ID")
+    @JoinColumn(name = "author_id")
     private Author author;
+
+    private String title;
     private String content;
 
     @Builder
