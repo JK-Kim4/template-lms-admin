@@ -31,6 +31,7 @@ public class Author extends BaseTimeEntity {
     @Column
     private String imgUrl;
 
+
     @Builder
     public Author(String name1, String name2, String name3, String content, String imgUrl){
         this.name1 = name1;

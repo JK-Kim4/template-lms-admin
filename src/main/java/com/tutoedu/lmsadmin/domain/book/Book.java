@@ -1,17 +1,34 @@
 package com.tutoedu.lmsadmin.domain.book;
 
-import lombok.AllArgsConstructor;
+import com.tutoedu.lmsadmin.domain.BaseTimeEntity;
+import com.tutoedu.lmsadmin.domain.author.Author;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
-public class Book {
+@Entity
+public class Book extends BaseTimeEntity {
 
-    private int bkSeq;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String title;
-    private String author;
+
+    @ManyToOne
+    @JoinColumn(name="AUTHOR_ID")
+    private Author author;
     private String content;
+
+    @Builder
+    public Book(String title, Author author, String content){
+        this.title = title;
+        this.author = author;
+        this.content = content;
+
+    }
 
 }
