@@ -2,6 +2,7 @@ package com.tutoedu.lmsadmin;
 
 import com.tutoedu.lmsadmin.domain.author.Author;
 import com.tutoedu.lmsadmin.service.AuthorService;
+import com.tutoedu.lmsadmin.service.BookService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,8 @@ public class HomeController {
 
     private final AuthorService authorService;
 
+    private final BookService bookService;
+
     @GetMapping(value = {"/index", "/"})
     public String index(){
         return "layouts/main_1";
@@ -28,7 +31,7 @@ public class HomeController {
     }
 
     @GetMapping(value = "/author/list")
-    public String listG(Model model){
+    public String authorList(Model model){
 
         List<Author> list = authorService.findAll();
 
@@ -40,7 +43,23 @@ public class HomeController {
     }
 
     @GetMapping(value = "/author/save")
-    public String insertG(){
+    public String insert(){
         return "contents/author/save";
+    }
+
+    @GetMapping(value="/book/list")
+    public String bookList(Model model){
+
+        model.addAttribute("list", bookService.findAll());
+
+        return "contents/book/list";
+    }
+
+    @GetMapping(value = "/book/save")
+    public String bookSave(Model model){
+
+        model.addAttribute("authorList", authorService.findAll());
+
+        return "contents/book/save";
     }
 }

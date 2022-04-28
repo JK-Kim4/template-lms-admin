@@ -1,0 +1,48 @@
+{{>layouts/header}}
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title"> 도서 등록 </h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0);" onclick="move_location('/author/list')">도서 목록</a></li>
+                <li class="breadcrumb-item active" aria-current="page">도서 등록</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">도서 등록</h4>
+                    <p class="card-description"> 도서 등록. </p>
+                    <form id="authorInsertFrm" enctype="multipart/form-data" method="post">
+                        <div class="form-group">
+                            <label for="name1">제목</label>
+                            <input type="text" class="form-control" id="title" name="name1" placeholder="한글 이름을 입력해 주세요." required >
+                        </div>
+                        <div class="form-group">
+                            <label for="content">내용</label>
+                            <textarea class="form-control" name="content" id="content" cols="30" rows="10"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="author">저자 : </label>
+                            <select name="author" id="author">
+                        {{#authorList}}
+                            <option value="{{id}}">{{name1}}</option>
+                        {{/authorList}}
+                        {{^authorList}}
+                            <option value="" selected disabled>등록된 저자가 없습니다.</option>
+                        {{/authorList}}
+                            </select>
+                        </div>
+                        <button type="button" class="btn btn-primary mr-2" id="submitBtn">Submit</button>
+                        <button type="button" class="btn btn-dark" onclick="javascript:window.history.back()">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/cms/author/js/author.js"></script>
+<!-- content-wrapper ends -->
+{{>layouts/footer}}

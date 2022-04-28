@@ -1,0 +1,51 @@
+{{>layouts/header}}
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title"> 도서 관리 </h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">도서 관리</a></li>
+                <li class="breadcrumb-item active" aria-current="page">도서 목록</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">도서 목록</h4>
+                    <!--<p class="card-description"> Add class <code>.table-dark</code>-->
+                    <p style="text-align: end"><button type="button" class="btn btn-primary btn-fw" onclick="move_location('/book/save')">등록</button></p>
+                    <div class="table-responsive">
+                        <table class="table table-dark">
+                            <thead>
+                            <tr>
+                                <th> # </th>
+                                <th> 제목 </th>
+                                <th> 저자 </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#list}}
+                                <tr>
+                                    <td>{{id}}</td>
+                                    <td>{{title}}</td>
+                                    <td>{{author}}</td>
+                                </tr>
+                            {{/list}}
+                            {{^list}}
+                                <tr>
+                                    <td colspan="4">
+                                        데이터 없음
+                                    </td>
+                                </tr>
+                            {{/list}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{>layouts/footer}}
