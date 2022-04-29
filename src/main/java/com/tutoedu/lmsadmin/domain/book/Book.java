@@ -2,12 +2,12 @@ package com.tutoedu.lmsadmin.domain.book;
 
 import com.tutoedu.lmsadmin.domain.BaseTimeEntity;
 import com.tutoedu.lmsadmin.domain.author.Author;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
+@Getter
+@Setter
 @Data
 @NoArgsConstructor
 @Entity
