@@ -10,15 +10,21 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class BookSaveRequestDto {
 
-    private Author author;
+    private Long authorId;
     private String title;
     private String content;
 
+    private Author author;
+
     @Builder
-    public BookSaveRequestDto(Author author, String title, String content){
-        this.author = author;
+    public BookSaveRequestDto(Long authorId, String title, String content){
+        this.authorId = authorId;
         this.title = title;
         this.content = content;
+    }
+
+    public void setAuthor(Author author){
+        this.author = author;
     }
 
     public Book toEntity(){

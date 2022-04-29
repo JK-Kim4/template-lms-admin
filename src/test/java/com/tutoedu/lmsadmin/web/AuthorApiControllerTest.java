@@ -1,4 +1,4 @@
-package com.tutoedu.lmsadmin;
+package com.tutoedu.lmsadmin.web;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tutoedu.lmsadmin.domain.author.Author;
@@ -59,7 +59,7 @@ public class AuthorApiControllerTest {
         String name1 = "test1";
         String name2 = "test2";
         String name3 = "test3";
-        String content = "testContent";
+        String description = "test description";
         String imgUrl = "test url";
 
         //BaseTimeEntity 검증 추가
@@ -70,7 +70,7 @@ public class AuthorApiControllerTest {
                 .name1(name1)
                 .name2(name2)
                 .name3(name3)
-                .content(content)
+                .description(description)
                 .imgUrl(imgUrl)
                 .build();
 
@@ -85,7 +85,7 @@ public class AuthorApiControllerTest {
         List<Author> all = authorRepository.findAll();
 
         assertThat(all.get(0).getName1()).isEqualTo(name1);
-        assertThat(all.get(0).getContent()).isEqualTo(content);
+        assertThat(all.get(0).getDescription()).isEqualTo(description);
         assertThat(all.get(0).getCreatedDate()).isAfter(now);
         assertThat(all.get(0).getModifiedDate()).isAfter(now);
 

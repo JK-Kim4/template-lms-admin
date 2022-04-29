@@ -26,8 +26,9 @@
                         </div>
                         <div class="form-group">
                             <label for="author">저자 : </label>
-                            <select name="author" id="author">
+                            <select name="authorId" id="authorId">
                         {{#authorList}}
+                            <option value="" selected disabled>저자를 선택해 주세요.</option>
                             <option value="{{id}}">{{name1}}</option>
                         {{/authorList}}
                         {{^authorList}}
@@ -43,6 +44,6 @@
         </div>
     </div>
 </div>
-<script src="/cms/author/js/author.js"></script>
+<script src="/cms/book/js/book.js"></script>
 <!-- content-wrapper ends -->
 {{>layouts/footer}}

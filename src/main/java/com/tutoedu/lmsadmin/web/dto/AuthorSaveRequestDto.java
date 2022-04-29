@@ -12,15 +12,15 @@ public class AuthorSaveRequestDto {
     private String name1;
     private String name2;
     private String name3;
-    private String content;
+    private String description;
     private String imgUrl;
 
     @Builder
-    public AuthorSaveRequestDto(String name1, String name2, String name3, String content, String imgUrl){
+    public AuthorSaveRequestDto(String name1, String name2, String name3, String description, String imgUrl){
         this.name1 = name1;
         this.name2 = name2;
         this.name3 = name3;
-        this.content = content;
+        this.description = description;
         this.imgUrl = imgUrl;
     }
 
@@ -29,7 +29,7 @@ public class AuthorSaveRequestDto {
                 .name1(name1)
                 .name2(name2)
                 .name3(name3)
-                .content(content)
+                .description(description)
                 .imgUrl(imgUrl)
                 .build();
     }

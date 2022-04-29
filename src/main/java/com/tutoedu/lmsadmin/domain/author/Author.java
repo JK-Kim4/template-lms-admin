@@ -30,7 +30,7 @@ public class Author extends BaseTimeEntity {
     private String name3;
 
     @Column(columnDefinition = "TEXT", nullable = true)
-    private String content;
+    private String description;
 
     @Column
     private String imgUrl;
@@ -40,11 +40,11 @@ public class Author extends BaseTimeEntity {
 
 
     @Builder
-    public Author(String name1, String name2, String name3, String content, String imgUrl){
+    public Author(String name1, String name2, String name3, String description, String imgUrl){
         this.name1 = name1;
         this.name2 = name2;
         this.name3 = name3;
-        this.content = content;
+        this.description = description;
         this.imgUrl = imgUrl;
     }
 

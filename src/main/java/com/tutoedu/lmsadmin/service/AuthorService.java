@@ -6,8 +6,8 @@ import com.tutoedu.lmsadmin.web.dto.AuthorSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Slf4j
@@ -31,4 +31,12 @@ public class AuthorService {
     }
 
 
+    @Transactional(readOnly = true)
+    public Author findById(Long authorId) {
+
+        Author entity = authorRepository.findById(authorId)
+                .orElseThrow(() -> new IllegalArgumentException("해당 저자가 존재하지 않습니다. id = " + authorId));
+
+        return entity;
+    }
 }

@@ -13,7 +13,7 @@ let main = {
           name1 : $("#name1").val(),
           name2 : $("#name2").val(),
           name3 : $("#name3").val(),
-          content : $("#content").val(),
+          description : $("#description").val(),
           imgUrl : $("#imgUrl").val()
       }
       $.ajax({
