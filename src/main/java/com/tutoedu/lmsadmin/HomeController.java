@@ -8,7 +8,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Slf4j
@@ -61,5 +63,17 @@ public class HomeController {
         model.addAttribute("authorList", authorService.findAll());
 
         return "contents/book/save";
+    }
+
+    @GetMapping("/test/author/list")
+    @ResponseBody
+    public HashMap<String, Object> bodyTest(){
+        List<Author> list = authorService.findAll();
+
+        log.debug("author List findAll : {}", list.toArray());
+
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("result", list);
+        return result;
     }
 }
