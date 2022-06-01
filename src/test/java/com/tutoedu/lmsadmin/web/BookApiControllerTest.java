@@ -5,8 +5,6 @@ import com.tutoedu.lmsadmin.domain.author.Author;
 import com.tutoedu.lmsadmin.domain.author.AuthorRepository;
 import com.tutoedu.lmsadmin.domain.book.Book;
 import com.tutoedu.lmsadmin.domain.book.BookRepository;
-import com.tutoedu.lmsadmin.web.dto.AuthorSaveRequestDto;
-import com.tutoedu.lmsadmin.web.dto.BookSaveRequestDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
