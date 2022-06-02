@@ -1,40 +1,29 @@
 package com.tutoedu.lmsadmin.service;
 
-import com.tutoedu.lmsadmin.domain.user.CustomUserDetails;
-import com.tutoedu.lmsadmin.domain.user.User;
 import com.tutoedu.lmsadmin.domain.user.UserRepository;
-import com.tutoedu.lmsadmin.web.dto.UserSessionDto;
+import com.tutoedu.lmsadmin.web.dto.UserDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import javax.servlet.http.HttpSession;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class UserService implements UserDetailsService {
+public class UserService {
 
 
     private final UserRepository userRepository;
 
-    private final HttpSession session;
+    private final BCryptPasswordEncoder encoder;
 
-    /*사용자 정보 DB 조회*/
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username).orElseThrow(() ->
-                new IllegalArgumentException("사용자가 존재하지 않습니다."));
+    @Transactional
+    public Long join(UserDto dto){
+        dto.setPassword(encoder.encode(dto.getPassword()));
 
-        session.setAttribute("user", new UserSessionDto(user));
-
-        return new CustomUserDetails(user);
+        return userRepository.save(dto.toEntity()).getId();
     }
-
-
 
 
 }

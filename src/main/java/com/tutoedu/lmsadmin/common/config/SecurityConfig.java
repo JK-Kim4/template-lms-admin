@@ -1,6 +1,6 @@
 package com.tutoedu.lmsadmin.common.config;
 
-import com.tutoedu.lmsadmin.service.UserService;
+import com.tutoedu.lmsadmin.service.CustomUserDetailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,7 +29,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final UserService userService;
+    private final CustomUserDetailService customUserDetailService;
 
     /*비밀번호 암호화 객체*/
     @Bean
@@ -39,7 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userService).passwordEncoder(encoder());
+        auth.userDetailsService(customUserDetailService).passwordEncoder(encoder());
     }
 
     /*Spring security filter Exclude path 설정*/
