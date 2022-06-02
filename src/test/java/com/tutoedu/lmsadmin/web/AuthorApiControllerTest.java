@@ -3,7 +3,6 @@ package com.tutoedu.lmsadmin.web;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tutoedu.lmsadmin.domain.author.Author;
 import com.tutoedu.lmsadmin.domain.author.AuthorRepository;
-import com.tutoedu.lmsadmin.web.dto.AuthorSaveRequestDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
